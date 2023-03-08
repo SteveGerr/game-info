@@ -3,13 +3,18 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
-import api from './api';
+import { Ref, ref } from 'vue';
+import GamesApi from './api/GamesApi';
+import { GamesI } from './interfaces/GamesI';
 
-onMounted(() => {
-	console.log(api);
-});
+const games: Ref<GamesI[]> = ref([]);
 
+const getAllGames = async () => {
+	const res = await GamesApi.getAllGames();
+	games.value = res.data;
+};
+
+getAllGames();
 </script>
 
 <style lang="scss">
