@@ -24,6 +24,7 @@ module.exports = {
 		],
 		'linebreak-style': 0,
 		indent: [1, 'tab'],
+		camelcase: 'off',
 		'no-tabs': 0,
 		'no-param-reassign': 0,
 		'no-explicit-any': 0,
