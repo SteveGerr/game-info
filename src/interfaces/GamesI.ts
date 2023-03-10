@@ -1,4 +1,4 @@
-export interface GamesI {
+export interface GamesListI {
 	id: number,
 	title: string
 	thumbnail: string,
