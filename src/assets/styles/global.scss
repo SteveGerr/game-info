@@ -1,0 +1,72 @@
+@import './variables.scss';
+html {
+    height: 100%;
+    font-size: 10px;
+
+    @media (min-width: $bp-tablet) {
+        font-size: 0.52083333vw;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Circe', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    /* blue colors for links too */
+    text-decoration: inherit;
+    /* no underline */
+}
+
+ul,
+ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    padding: 0;
+}
+
+table {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-collapse: inherit;
+    border-spacing: 0;
+    border-color: inherit;
+    vertical-align: inherit;
+    text-align: left;
+    font-weight: inherit;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
+
+blockquote,
+figure {
+    margin: 0;
+}
+
+img {
+    display: block;
+}
