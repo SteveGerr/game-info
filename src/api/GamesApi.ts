@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import API from './API';
 
 type Options = {
@@ -17,6 +18,6 @@ const options: Options = {
 
 export default {
 	getAllGames() {
-		return API('https://mmo-games.p.rapidapi.com').get('games', options);
+		return API('https://mmo-games.p.rapidapi.com').get<any, any>('games', options);
 	},
 };
