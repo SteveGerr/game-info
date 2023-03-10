@@ -1,0 +1,101 @@
+@mixin text-h1 {
+    font-size: 10rem;
+    line-height: 10.6rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    font-variant: small-caps;
+}
+
+@mixin text-h1-glyphs {
+    font-size: 10rem;
+    line-height: 10.6rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-family: 'CirceGlyphs', sans-serif;
+}
+
+@mixin text-h1-glyphs-mobile {
+    font-size: 3.8rem;
+    line-height: 4rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-family: 'CirceGlyphs', sans-serif;
+}
+
+@mixin text-h1-mobile {
+    font-size: 3.8rem;
+    line-height: 4rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    font-variant: small-caps;
+}
+
+@mixin text-h2 {
+    font-size: 6rem;
+    line-height: 120%;
+    font-weight: 500;
+}
+
+@mixin text-h2-mobile {
+    font-size: 3.2rem;
+    line-height: 106%;
+    font-weight: 500;
+}
+
+@mixin text-h3 {
+    font-size: 3rem;
+    line-height: 130%;
+    font-weight: 500;
+}
+
+@mixin text-h3-mobile {
+    font-size: 2.6rem;
+    line-height: 106%;
+    font-weight: 500;
+}
+
+@mixin text-body {
+    font-size: 2.2rem;
+    line-height: 145%;
+    font-weight: 400;
+}
+
+@mixin text-body-mobile {
+    font-size: 1.8rem;
+    line-height: 130%;
+    font-weight: 400;
+}
+
+@mixin text-link {
+    font-size: 1.8rem;
+    line-height: 100%;
+    font-weight: Bold;
+}
+
+@mixin text-subtitle {
+    font-size: 1.5rem;
+    line-height: 135%;
+    font-weight: 500;
+}
+
+@mixin text-navigation {
+    font-size: 1.6rem;
+    line-height: 120%;
+}
+
+@mixin text($size, $line, $weight) {
+    font-size: $size;
+    line-height: $line;
+    font-weight: $weight;
+}
+
+@mixin text-glyphs($size, $line, $weight) {
+    font-size: $size;
+    line-height: $line;
+    font-weight: $weight;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-family: 'CirceGlyphs', sans-serif;
+}
