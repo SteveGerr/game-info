@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-
 </script>
 
 <style lang="scss">
@@ -14,6 +13,6 @@
 	justify-content: space-between;
 
 	@include text-body;
-	color: $primary
+	color: $gray-400;
 }
 </style>
