@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import Details from '@/components/GameDetails.vue';
-import Main from '@/pages/MainPage.vue';
+import Main from '@/pages/main/MainPage.vue';
+import Details from '@/pages/details/GameDetails.vue';
 
 const routes = [
 	{
@@ -9,7 +9,7 @@ const routes = [
 		component: Main,
 	},
 	{
-		path: '/details',
+		path: '/details/:id',
 		name: 'Details',
 		component: Details,
 	},
