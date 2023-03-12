@@ -20,7 +20,7 @@ import ListGames from '@/components/games-list/ListGames.vue';
 	"heading heading"
 	"filters list";
 	width: 100%;
-	max-width: 80vw;
+	max-width: 55vw;
 	height: 96vh;
 	margin: 1rem auto;
 	padding: 0 3rem;
