@@ -1,4 +1,4 @@
-# currency-converter
+# Game-info
 
 ## Project setup
 ```
