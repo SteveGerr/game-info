@@ -27,5 +27,12 @@ getGames();
 	margin: 2rem;
 	gap: 1rem;
 	overflow: auto;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 </style>
