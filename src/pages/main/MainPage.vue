@@ -45,7 +45,7 @@ import AppSearch from '@/components/search/AppSearch.vue';
 	&__list {
 		display: grid;
 		grid-area: list;
-		justify-content: flex-end;
+		justify-content: center;
 	}
 
 	&__filters {
