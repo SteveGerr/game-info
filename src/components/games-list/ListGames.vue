@@ -1,7 +1,8 @@
 <template>
-	<ul class="list">
+	<ul v-if="store.filterGameByName.length" class="list">
 		<list-item v-for="game in store.filterGameByName" :key="game.id" :item="game" />
 	</ul>
+	<p v-else>Nothing found</p>
 </template>
 
 <script lang="ts" setup>
@@ -32,5 +33,11 @@ getGames();
 
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+
+	p {
+		@include text(2rem, 3rem, 600);
+		text-align: center;
+		color: $primary;
+	}
 }
 </style>
