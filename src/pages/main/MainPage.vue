@@ -1,31 +1,35 @@
 <template>
 	<div class="main-page">
 		<h1 class="main-page__heading">Game finder</h1>
-		<ListGames class="list" />
-		<div class="filters"></div>
+		<ListGames class="main-page__list" />
+		<div class="main-page__filters">
+			<app-search />
+			<div>Sort</div>
+		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
 import ListGames from '@/components/games-list/ListGames.vue';
-
+import AppSearch from '@/components/search/AppSearch.vue';
 </script>
 
 <style lang="scss">
 .main-page {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: auto auto;
+	grid-template-columns: auto;
+	grid-template-rows: repeat(2, auto) 1fr;
 	grid-template-areas:
-	"heading heading"
-	"filters list";
+		'heading'
+		'filters'
+		'list';
 	width: 100%;
-	max-width: 55vw;
+	max-width: 65vw;
 	height: 96vh;
 	margin: 1rem auto;
-	padding: 0 3rem;
+	padding: 3rem;
 	gap: 2rem;
-	background-color: $secondary3;
+	background-color: $background-color;
 	border-radius: 5rem;
 
 	@include text-body;
@@ -34,18 +38,22 @@ import ListGames from '@/components/games-list/ListGames.vue';
 	&__heading {
 		grid-area: heading;
 		@include text-h1;
+		font-family: 'CirceGlyphs';
 		color: $primary;
 	}
 
-	.list {
+	&__list {
 		display: grid;
 		grid-area: list;
 		justify-content: flex-end;
 	}
 
-	.filters {
+	&__filters {
 		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		grid-area: filters;
+		align-items: start;
+		gap: 3rem;
 	}
 }
 </style>
