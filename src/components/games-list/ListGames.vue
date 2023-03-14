@@ -1,6 +1,6 @@
 <template>
 	<ul class="list">
-		<list-item v-for="game in store.gamesList" :key="game.id" :item="game" />
+		<list-item v-for="game in store.filterGameByName" :key="game.id" :item="game" />
 	</ul>
 </template>
 
@@ -15,16 +15,14 @@ const getGames = async () => {
 };
 
 getGames();
-
 </script>
 
 <style lang="scss" scoped>
 .list {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	margin: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	justify-content: center;
+	align-items: start;
 	gap: 1rem;
 	overflow: auto;
 
