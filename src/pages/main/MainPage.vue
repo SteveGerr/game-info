@@ -4,7 +4,7 @@
 		<ListGames class="main-page__list" />
 		<div class="main-page__filters">
 			<app-search />
-			<div>Sort</div>
+			<app-sorting />
 		</div>
 	</div>
 </template>
@@ -12,6 +12,7 @@
 <script lang="ts" setup>
 import ListGames from '@/components/games-list/ListGames.vue';
 import AppSearch from '@/components/search/AppSearch.vue';
+import AppSorting from '@/components/app-sorting/AppSorting';
 </script>
 
 <style lang="scss">
