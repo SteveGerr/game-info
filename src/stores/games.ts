@@ -10,6 +10,7 @@ export const useGamesStore = defineStore('games', () => {
 	const gamesList: Ref<GamesListI[]> = ref([]);
 	const gameDetails: Ref<GameI> = ref({} as GameI);
 	const searchValue: Ref<string> = ref('');
+	const selectValue: Ref<string[]> = ref([]);
 
 	const filterGameByName = computed(() => {
 		const result = gamesList.value.filter(
@@ -17,6 +18,19 @@ export const useGamesStore = defineStore('games', () => {
 			// eslint-disable-next-line function-paren-newline
 		);
 		return result;
+	});
+
+	const gamesCategory = computed(() => {
+		// Create unique game category
+		const category = [...new Set(gamesList.value.map((game) => game.genre))];
+		// formate options for select
+		return category.map((cat) => {
+			const options = {
+				category: cat,
+				value: cat,
+			};
+			return options;
+		});
 	});
 
 	const getGames = async () => {
@@ -43,6 +57,8 @@ export const useGamesStore = defineStore('games', () => {
 	return {
 		filterGameByName,
 		getGameDetails,
+		gamesCategory,
+		selectValue,
 		searchValue,
 		gameDetails,
 		gamesList,
