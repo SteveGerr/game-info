@@ -5,7 +5,7 @@
 				id="input"
 				class="app-input__input"
 				:value="modelValue"
-				@change="updateValue"
+				@input="updateValue"
 				type="text"
 				placeholder="Enter the game"
 			/>
