@@ -1,6 +1,6 @@
 <template>
 	<multiselect
-		v-model="value"
+		:value="value"
 		:options="props.options"
 		:multiple="true"
 		:close-on-select="false"
@@ -12,7 +12,7 @@
 		track-by="name"
 		:preselect-first="true"
 	>
-		<template slot="selection" slot-scope="{ values, search, isOpen }"
+		<template v-slot:selection="{ values, isOpen }"
 			><span class="multiselect__single" v-if="values.length" v-show="!isOpen"
 				>{{ values.length }} options selected</span
 			></template
