@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import ListGames from '@/components/games-list/ListGames.vue';
 import AppSearch from '@/components/search/AppSearch.vue';
-import AppSorting from '@/components/app-sorting/AppSorting';
+import AppSorting from '@/components/app-sorting/AppSorting.vue';
 </script>
 
 <style lang="scss">
