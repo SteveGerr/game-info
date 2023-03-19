@@ -29,4 +29,8 @@ export default {
 	getGame(idGame: unknown) {
 		return API('https://mmo-games.p.rapidapi.com').get<any, any>(`game?${APIKey}&id=${idGame}`, options);
 	},
+
+	getGameByCategory(category: string) {
+		return API('https://mmo-games.p.rapidapi.com').get<any, any>(`game?${APIKey}&category=${category}`, options);
+	},
 };
