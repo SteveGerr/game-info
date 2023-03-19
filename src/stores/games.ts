@@ -7,10 +7,14 @@ import { GamesListI, GameI } from '../interfaces/GamesI';
 import GamesApi from '../api/GamesApi';
 
 export const useGamesStore = defineStore('games', () => {
+	type SelectValue = {
+		[x:string]: string
+	}
+
 	const gamesList: Ref<GamesListI[]> = ref([]);
 	const gameDetails: Ref<GameI> = ref({} as GameI);
 	const searchValue: Ref<string> = ref('');
-	const selectValue: Ref<string[]> = ref([]);
+	const selectValue: Ref<SelectValue> = ref({});
 
 	const filterGameByName = computed(() => {
 		const result = gamesList.value.filter(
@@ -23,7 +27,7 @@ export const useGamesStore = defineStore('games', () => {
 	const gamesCategory = computed(() => {
 		// Create unique game category
 		const category = [...new Set(gamesList.value.map((game) => game.genre))];
-		// formate options for select
+		// formate options list for select
 		return category.map((cat) => {
 			const options = {
 				category: cat,
@@ -54,9 +58,24 @@ export const useGamesStore = defineStore('games', () => {
 		}
 	};
 
+	const getGamesByCategory = async () => {
+		try {
+			await GamesApi.getGameByCategory('shooter');
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const sortByCategory = (category: SelectValue) => {
+		selectValue.value = category;
+		getGamesByCategory();
+	};
+
 	return {
+		getGamesByCategory,
 		filterGameByName,
 		getGameDetails,
+		sortByCategory,
 		gamesCategory,
 		selectValue,
 		searchValue,
