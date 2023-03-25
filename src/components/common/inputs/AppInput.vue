@@ -40,7 +40,7 @@ const updateValue = (e: globalThis.Event) => {
 
 	&__input {
 		width: 100%;
-		padding: 1rem;
+		padding: 2.4rem;
 		border: none;
 		outline: none;
 		background: $background-color;
