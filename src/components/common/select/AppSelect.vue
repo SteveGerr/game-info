@@ -27,6 +27,41 @@ const updateValue = (e: globalThis.Event) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
-
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>
+
+<style lang="scss">
+.multiselect__tags {
+	border-radius: 0;
+	border: 1px solid $gray-500;
+	background: $background-color;
+	@include text(1.8rem, 1.5rem, 600);
+	color: $gray-100;
+}
+
+.multiselect__input {
+	background: transparent;
+	color: $gray-100;
+}
+
+.multiselect__content-wrapper {
+	background: $background-color-options;
+	color: $white;
+}
+
+.multiselect__option--highlight {
+	background: $primary;
+	&::after {
+		background: $primary;
+	}
+}
+
+.multiselect__placeholder {
+	margin-bottom: 0px;
+ padding-top: 8px;
+	color: $select-placeholder;
+}
+
+.multiselect__select::before {
+	top: 76%;
+}
+</style>
