@@ -1,19 +1,12 @@
 <template>
 	<multiselect
-		:model-value="props.value"
+		:model-value="props.selectValue"
 		:options="props.options"
 		:close-on-select="true"
 		@update:model-value="updateValue"
 		placeholder="Pick some"
-		label="category"
-		track-by="category"
 		:preselect-first="true"
 	>
-		<template v-slot:selection="{ values, isOpen }"
-			><span class="multiselect__single" v-if="values.length" v-show="!isOpen"
-				>{{ values.length }} options selected</span
-			>
-		</template>
 	</multiselect>
 </template>
 
@@ -23,14 +16,9 @@ import { defineProps, defineEmits } from 'vue';
 
 const emit = defineEmits(['update:modelValue']);
 
-type Options = {
-	category: string;
-	value: string;
-};
-
 const props = defineProps<{
-	options: Options[];
-	value: string;
+	options: string[];
+	selectValue: string;
 }>();
 
 // eslint-disable-next-line no-undef

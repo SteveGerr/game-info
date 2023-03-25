@@ -7,14 +7,11 @@ import { GamesListI, GameI } from '../interfaces/GamesI';
 import GamesApi from '../api/GamesApi';
 
 export const useGamesStore = defineStore('games', () => {
-	type SelectValue = {
-		[x:string]: string
-	}
-
 	const gamesList: Ref<GamesListI[]> = ref([]);
 	const gameDetails: Ref<GameI> = ref({} as GameI);
 	const searchValue: Ref<string> = ref('');
-	const selectValue: Ref<SelectValue> = ref({});
+	const selectValue: Ref<string> = ref('');
+	const gamesCategories: Ref<string[]> = ref([]);
 
 	const filterGameByName = computed(() => {
 		const result = gamesList.value.filter(
@@ -24,24 +21,15 @@ export const useGamesStore = defineStore('games', () => {
 		return result;
 	});
 
-	const gamesCategory = computed(() => {
-		// Create unique game category
-		const category = [...new Set(gamesList.value.map((game) => game.genre))];
-		// formate options list for select
-		return category.map((cat) => {
-			const options = {
-				category: cat,
-				value: cat,
-			};
-			return options;
-		});
-	});
-
 	const getGames = async () => {
 		try {
 			await GamesApi.getAllGames().then((res) => {
 				const { data } = res;
 				gamesList.value = data;
+
+				const categories = [...new Set(data.map((game: GameI) => game.genre))];
+
+				gamesCategories.value = categories as string[];
 			});
 		} catch (error) {
 			console.log(error);
@@ -58,25 +46,22 @@ export const useGamesStore = defineStore('games', () => {
 		}
 	};
 
-	const getGamesByCategory = async () => {
+	const getGamesByCategory = async (genre: string) => {
 		try {
-			await GamesApi.getGameByCategory('shooter');
+			await GamesApi.getAllGames().then((res) => {
+				const { data } = res;
+				gamesList.value = data.filter((game: GameI) => game.genre.includes(genre));
+			});
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const sortByCategory = (category: SelectValue) => {
-		selectValue.value = category;
-		getGamesByCategory();
-	};
-
 	return {
 		getGamesByCategory,
 		filterGameByName,
+		gamesCategories,
 		getGameDetails,
-		sortByCategory,
-		gamesCategory,
 		selectValue,
 		searchValue,
 		gameDetails,

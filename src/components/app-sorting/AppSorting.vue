@@ -2,9 +2,9 @@
 	<div class="sorting">
 		<p>Sorting</p>
 		<app-select
-			:value="store.selectValue"
-			:options="store.gamesCategory"
-			@update:model-value="(e) => store.sortByCategory(e)"
+			:selectValue="store.selectValue"
+			:options="store.gamesCategories"
+			@update:model-value="(e) => store.getGamesByCategory(e)"
 		/>
 	</div>
 </template>
