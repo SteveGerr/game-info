@@ -18,29 +18,40 @@ import AppSorting from '@/components/app-sorting/AppSorting.vue';
 <style lang="scss">
 .main-page {
 	display: grid;
-	grid-template-columns: auto;
 	grid-template-rows: repeat(2, auto) 1fr;
 	grid-template-areas:
-		'heading'
-		'filters'
-		'list';
+	'heading'
+	'filters'
+	'list';
 	width: 100%;
-	max-width: 65vw;
-	height: 96vh;
-	margin: 1rem auto;
-	padding: 3rem;
-	gap: 2rem;
+	padding: 1.5rem;
 	background-color: $background-color;
-	border-radius: 5rem;
 
 	@include text-body;
 	color: $primary;
 
+	@media (min-width: $bp-tablet) {
+		grid-template-columns: auto;
+		grid-template-rows: repeat(2, auto) 1fr;
+		max-width: 65vw;
+		height: 96vh;
+		margin: 1rem auto;
+		padding: 3rem;
+		gap: 2rem;
+		border-radius: 5rem;
+	}
+
 	&__heading {
 		grid-area: heading;
-		@include text-h1;
+		margin: 0 0 2rem 0;
 		font-family: 'CirceGlyphs';
+		@include text-h1-mobile;
 		color: $primary;
+
+		@media (min-width: $bp-tablet) {
+			margin: 0;
+			@include text-h1;
+		}
 	}
 
 	&__list {
@@ -51,10 +62,17 @@ import AppSorting from '@/components/app-sorting/AppSorting.vue';
 
 	&__filters {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
 		grid-area: filters;
 		align-items: start;
-		gap: 3rem;
+		margin: 0 0 2rem 0;
+		gap: 1rem;
+
+		@media (min-width: $bp-tablet) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem;
+		}
 	}
 }
 </style>
