@@ -1,6 +1,6 @@
 <template>
 	<div class="sorting">
-		<p>Sorting</p>
+		<p>Sorting by category</p>
 		<app-select
 			:selectValue="store.selectValue"
 			:options="store.gamesCategories"
