@@ -5,7 +5,7 @@
 				id="input"
 				class="app-input__input"
 				:value="modelValue"
-				@change="updateValue"
+				@input="updateValue"
 				type="text"
 				placeholder="Enter the game"
 			/>
@@ -40,12 +40,17 @@ const updateValue = (e: globalThis.Event) => {
 
 	&__input {
 		width: 100%;
-		padding: 1rem;
+		padding: 0.7rem;
+		background: $background-color;
+		@include text(1.4rem, 1.3rem, 600);
+		color: $gray-100;
 		border: none;
 		outline: none;
-		background: $background-color;
-		@include text(1.8rem, 1.5rem, 600);
-		color: $gray-100;
+
+		@media (min-width: $bp-tablet) {
+			padding: 2.4rem;
+			@include text(1.8rem, 1.5rem, 600);
+		}
 	}
 }
 </style>

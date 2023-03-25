@@ -10,6 +10,8 @@ export const useGamesStore = defineStore('games', () => {
 	const gamesList: Ref<GamesListI[]> = ref([]);
 	const gameDetails: Ref<GameI> = ref({} as GameI);
 	const searchValue: Ref<string> = ref('');
+	const selectValue: Ref<string> = ref('');
+	const gamesCategories: Ref<string[]> = ref([]);
 
 	const filterGameByName = computed(() => {
 		const result = gamesList.value.filter(
@@ -24,6 +26,10 @@ export const useGamesStore = defineStore('games', () => {
 			await GamesApi.getAllGames().then((res) => {
 				const { data } = res;
 				gamesList.value = data;
+
+				const categories = [...new Set(data.map((game: GameI) => game.genre))];
+
+				gamesCategories.value = categories as string[];
 			});
 		} catch (error) {
 			console.log(error);
@@ -40,9 +46,23 @@ export const useGamesStore = defineStore('games', () => {
 		}
 	};
 
+	const getGamesByCategory = async (genre: string) => {
+		try {
+			await GamesApi.getAllGames().then((res) => {
+				const { data } = res;
+				gamesList.value = data.filter((game: GameI) => game.genre.includes(genre));
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return {
+		getGamesByCategory,
 		filterGameByName,
+		gamesCategories,
 		getGameDetails,
+		selectValue,
 		searchValue,
 		gameDetails,
 		gamesList,

@@ -1,7 +1,7 @@
 <template>
 	<div class="search">
 		<span>Search</span>
-		<app-input :model-value="value" @change="change" />
+		<app-input :model-value="value" @input="change" />
 	</div>
 </template>
 

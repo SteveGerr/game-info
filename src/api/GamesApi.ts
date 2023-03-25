@@ -12,6 +12,7 @@ type Options = {
 }
 
 const APIKey = 'rapidapi-key=58c92d3c33msh6459bc552f9a8ffp14d0ccjsn9e318546f38b';
+const url = 'https://mmo-games.p.rapidapi.com';
 
 const options: Options = {
 	method: 'GET',
@@ -23,10 +24,10 @@ const options: Options = {
 
 export default {
 	getAllGames() {
-		return API('https://mmo-games.p.rapidapi.com').get<any, any>('games', options);
+		return API(url).get<any, any>('games', options);
 	},
 
 	getGame(idGame: unknown) {
-		return API('https://mmo-games.p.rapidapi.com').get<any, any>(`game?${APIKey}&id=${idGame}`, options);
+		return API(url).get<any, any>(`game?${APIKey}&id=${idGame}`, options);
 	},
 };

@@ -11,11 +11,13 @@
 	display: flex;
 	justify-content: space-between;
 	min-height: 100vh;
-	background: url('assets/img/bg.webp');
-	background-size: cover;
-	background-repeat: no-repeat;
-
-	@include text-body;
 	color: $gray-400;
+
+	@media (min-width: $bp-tablet) {
+		@include text-body;
+		background: url('assets/img/bg.webp');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 }
 </style>
