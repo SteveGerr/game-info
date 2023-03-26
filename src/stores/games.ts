@@ -30,6 +30,7 @@ export const useGamesStore = defineStore('games', () => {
 				const categories = [...new Set(data.map((game: GameI) => game.genre))];
 
 				gamesCategories.value = categories as string[];
+				gamesCategories.value.unshift(' ');
 			});
 		} catch (error) {
 			console.log(error);
@@ -50,7 +51,11 @@ export const useGamesStore = defineStore('games', () => {
 		try {
 			await GamesApi.getAllGames().then((res) => {
 				const { data } = res;
-				gamesList.value = data.filter((game: GameI) => game.genre.includes(genre));
+				if (genre !== ' ') {
+					gamesList.value = data.filter((game: GameI) => game.genre.includes(genre));
+				} else {
+					gamesList.value = data;
+				}
 			});
 		} catch (error) {
 			console.log(error);
