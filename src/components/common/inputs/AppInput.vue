@@ -48,7 +48,7 @@ const updateValue = (e: globalThis.Event) => {
 		outline: none;
 
 		@media (min-width: $bp-tablet) {
-			padding: 2.4rem;
+			padding: 9px;
 			@include text(1.8rem, 1.5rem, 600);
 		}
 	}
