@@ -49,6 +49,7 @@ export const useGamesStore = defineStore('games', () => {
 
 	const getGamesByCategory = async (genre: string) => {
 		try {
+			selectValue.value = genre;
 			await GamesApi.getAllGames().then((res) => {
 				const { data } = res;
 				if (genre !== ' ') {

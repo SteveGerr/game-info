@@ -64,4 +64,9 @@ const updateValue = (e: globalThis.Event) => {
 .multiselect__select::before {
 	top: 76%;
 }
+
+.multiselect__input, .multiselect__single {
+	background: transparent;
+	color: $select-placeholder;
+}
 </style>
