@@ -31,6 +31,10 @@ const d = defineProps<{
 	&__heading {
 		@include text-h3;
 		color: $primary;
+
+		@media screen and (max-width: $bp-tablet) {
+			@include text(30px, 66px, 600);
+		}
 	}
 
 	&__list {
