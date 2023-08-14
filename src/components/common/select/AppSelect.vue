@@ -57,7 +57,7 @@ const updateValue = (e: globalThis.Event) => {
 
 .multiselect__placeholder {
 	margin-bottom: 0px;
- padding-top: 8px;
+ padding-top: 5px;
 	color: $select-placeholder;
 }
 
@@ -68,5 +68,8 @@ const updateValue = (e: globalThis.Event) => {
 .multiselect__input, .multiselect__single {
 	background: transparent;
 	color: $select-placeholder;
+}
+.multiselect__single {
+	line-height: 23px;
 }
 </style>
