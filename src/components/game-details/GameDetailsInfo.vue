@@ -51,6 +51,10 @@ const info: InfoI = {
 	background-color: $background-color;
 	border-radius: 0.8rem;
 
+	@media screen and (max-width: $bp-tablet) {
+		grid-template-columns: auto;
+	}
+
 	&__text {
 		display: grid;
 		gap: 1rem;
@@ -67,11 +71,16 @@ const info: InfoI = {
 		@include text(2.4rem, 1.2rem, 500);
 		font-style: italic;
 		color: $gray-200;
+
+		@media screen and (max-width: $bp-tablet) {
+			@include text(1.4rem, 1rem, 500);
+		}
 	}
 
 	&__image {
 		img {
 			border-radius: 3rem;
+			width: 100%;
 		}
 	}
 
