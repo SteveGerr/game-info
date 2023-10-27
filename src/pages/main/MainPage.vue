@@ -33,7 +33,7 @@ import AppSorting from '@/components/app-sorting/AppSorting.vue';
 	@media (min-width: $bp-tablet) {
 		grid-template-columns: auto;
 		grid-template-rows: repeat(2, auto) 1fr;
-		max-width: 65vw;
+		max-width: 85vw;
 		height: 96vh;
 		margin: 1rem auto;
 		padding: 3rem;
